@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>isSmartPhone｜JavaScript</title>
+</head>
+<body>
+
+<h1>isSmartPhone｜JavaScript</h1>
+
+<script type="text/javascript">
+var isSmartPhone = function(){
+	if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+		return true;
+	}else{
+		return false;
+	}
+}
+if(isSmartPhone()){
+	alert('スマートフォン');
+}else{
+	alert('スマートフォン以外');
+}
+</script>
+
+</body>
+</html>
