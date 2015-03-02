@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Scroll Event ver0.1</title>
+<style>
+body {
+	margin: 0;
+}
+
+#debugPanel {
+	padding: 10px;;
+	width: 400px;
+	border: 1px solid #000;
+	background: #FFF;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 10000;
+}
+
+#debugPanel h1 {
+	margin: 0 0 10px;
+}
+
+#debugPanel th,
+#debugPanel td {
+	font-weight: normal;
+}
+
+#debugPanel th {
+	text-align: right;
+}
+
+#debugPanel .output:before {
+	content: ": "
+}
+
+#scenes .scene {
+	height: 600px;
+	height: 80vh;
+	background: #eee;
+	border: 1px solid #f00;
+	position: relative;
+}
+
+#scenes > :nth-child(even) {
+	background: #ddd;
+}
+
+#scenes .scene > .ttl {
+	margin: 0;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	text-align: center;
+
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+</style>
+<script src="jquery-1.11.2.min.js"></script>
+<script src="script.js"></script>
+<!--[if lt IE 9]><script src="html5shiv.js"></script><![endif]-->
+</head>
+<body>
+<div id="debugPanel">
+	<h1>Scroll Event ver0.1</h1>
+	<ul>
+		<li>Win Chrome でホイールスクロール量調整</li>
+		<li>Chrome / Firefox / Safari / Internet Explorer 8～11</li>
+	</ul>
+
+	<table id="log">
+		<tr id="scrollTop">
+			<th>スクロール位置</th>
+			<td class="output"></td>
+		</tr>
+		<tr id="scrollVector">
+			<th>スクロール方向</th>
+			<td class="output"></td>
+		</tr>
+		<tr id="wheelVector">
+			<th>ホイール方向</th>
+			<td class="output"></td>
+		</tr>
+		<tr id="currentPos">
+			<th>カレント位置</th>
+			<td class="output"></td>
+		</tr>
+		<tr id="currentPosEx">
+			<th>カレント位置ex</th>
+			<td class="output"></td>
+		</tr>
+		<tr id="event">
+			<th>実行イベント</th>
+			<td class="output"></td>
+		</tr>
+	</table>
+</div>
+
+<div id="scenes">
+	<section class="scene" data-event="event1">
+		<h2 class="ttl">シーン1</h2>
+
+	</section>
+
+	<section class="scene" data-event="event2">
+		<h2 class="ttl">シーン2</h2>
+
+	</section>
+
+	<section class="scene" data-event="event3">
+		<h2 class="ttl">シーン3</h2>
+
+	</section>
+
+	<section class="scene" data-event="event4">
+		<h2 class="ttl">シーン4</h2>
+
+	</section>
+
+	<section class="scene" data-event="event5">
+		<h2 class="ttl">シーン5</h2>
+
+	</section>
+
+	<section class="scene" data-event="event6">
+		<h2 class="ttl">シーン6</h2>
+
+	</section>
+
+	<section class="scene" data-event="event7">
+		<h2 class="ttl">シーン7</h2>
+
+	</section>
+
+	<section class="scene" data-event="event8">
+		<h2 class="ttl">シーン8</h2>
+
+	</section>
+
+	<section class="scene" data-event="event9">
+		<h2 class="ttl">シーン9</h2>
+
+	</section>
+</div>
+
+</body>
+</html>
