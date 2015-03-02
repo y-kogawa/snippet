@@ -1,0 +1,21 @@
+@charset 'UTF-8';
+/*------------------------------------------------------------
+	トップページ
+------------------------------------------------------------*/
+
+.test {
+	position: relative;
+	float: left;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	-webkit-border-radius: 11px;
+	-moz-border-radius: 11px;
+	border-radius: 11px;
+	-ms-border-radius: 11px;
+	-o-border-radius: 11px;
+}
+
+body {
+	margin: 0;
+}

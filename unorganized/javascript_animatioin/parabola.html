@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>放物線</title>
+<style>
+<!--
+#object {
+	width: 100px;
+	height: 100px;
+	background: #ccc;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+-->
+</style>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script>
+$(function(){
+	var object = $('#object');
+	var win_w = $(window).width(),
+		win_h = $(window).height();
+
+	$('.start').click(function(){
+		start();
+	})
+
+	var coma = 200;
+	var radius = 200;
+	var angle = 0;
+	var per = Math.PI / coma;
+	var posX = [], posY = [];
+
+	angle += per * (coma / 1);
+
+	var start = function(){
+		setInterval(function(){
+			object.css({
+				top: radius + (Math.sin( angle ) * radius),
+				left: radius + (Math.cos( angle ) * radius)
+			});
+			angle += per;
+		});
+	}
+
+});
+</script>
+</head>
+<body>
+
+<h1>放物線</h1>
+<p>画面左下から右上に向かって放物線を描いて移動する</p>
+<button class="start">スタート</button>
+
+<div id="object"></div>
+
+</body>
+</html>

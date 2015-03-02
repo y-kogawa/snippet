@@ -184,8 +184,8 @@
 						e.preventDefault();
 
 						// スクロール位置の算出
-						scrl_x = window.scrollX; // win chrome以外も対象にするなら_getScroll('X')を使用する
-						scrl_y = window.scrollY; // win chrome以外も対象にするなら_getScroll('Y')を使用する
+						scrl_x = window.scrollX; // IEも対象にするなら_getScroll('X')を使用する
+						scrl_y = window.scrollY; // IEも対象にするなら_getScroll('Y')を使用する
 						scrl_y = scrl_y + scrl_increment;
 
 						window.scroll(scrl_x, scrl_y);
@@ -199,8 +199,8 @@
 						e.preventDefault();
 
 						// スクロール位置の算出
-						scrl_x = window.scrollX; // win chrome以外も対象にするなら_getScroll('X')を使用する
-						scrl_y = window.scrollY; // win chrome以外も対象にするなら_getScroll('Y')を使用する
+						scrl_x = window.scrollX; // IEも対象にするなら_getScroll('X')を使用する
+						scrl_y = window.scrollY; // IEも対象にするなら_getScroll('Y')を使用する
 						scrl_y = scrl_y - scrl_increment;
 
 						window.scroll(scrl_x, scrl_y);

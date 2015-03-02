@@ -1,0 +1,91 @@
+@charset "UTF-8";
+//
+// mixin,extendで使用する
+//
+
+// 文字サイズ
+@mixin fs($fontSize, $baseFontSize:10){
+	font-size: percentage($fontSize / $baseFontSize);
+}
+// example:
+// @include fs(15);
+// @include fs(20, 13);
+// ※第二引数のサイズをベースとして20pxになるよう計算された値が出力される
+
+// clearfix（float解除）
+%cf {
+	@if $support-ie6 or $support-ie7 {
+		*zoom: 1;
+	}
+	&:after {
+		display: block;
+		clear: both;
+		content: "";
+	}
+}
+// example:
+// @extend %cf;
+
+// clearfix（float解除）
+@mixin cf{
+	@if $support-ie6 or $support-ie7 {
+		*zoom: 1;
+	}
+	&:after {
+		display: block;
+		clear: both;
+		content: "";
+	}
+}
+// example:
+// @extend cf;
+
+// CSS3 プロパティ
+@mixin bdr($property-value, $property-type: shorthand) {
+	$property: border-radius;
+    @if $property-type != shorthand {
+        $property: border-#{$property-type}-radius;
+    }
+
+	@each $prefix in $set_prefix {
+		#{$prefix}#{$property}: $property-value;
+	}
+}
+// example:
+// @include bdr(10px 5px 1px 4px);
+// @include bdr(5px, 'top-left');
+
+@mixin bsd($property-value) {
+	@each $prefix in $set_prefix {
+		#{$prefix}box-shadow: $property-value;
+	}
+}
+// example:
+// @include bsd(10px 5px 1px rgba(0,0,0,0.5));
+// @include bsd((10px 5px 1px rgba(0,0,0,0.5), 10px 5px 1px rgba(0,0,0,0.5)));
+
+@mixin bsz($property-value) {
+	@each $prefix in $set_prefix {
+		#{$prefix}box-sizing: $property-value;
+	}
+}
+// example:
+// @include bsz(border-box);
+
+@mixin dspb() {
+	@each $prefix in $set_prefix {
+		display: #{$prefix}box;
+	}
+}
+// example:
+// @include dspb;
+
+// background-size
+@mixin bgs($bgs_w, $bgs_h) {  
+    @each $prefix in $set_prefix {  
+        #{$prefix}background-size: $bgs_w $bgs_h;  
+    }  
+}
+// example:
+// @include bgs(100px,50px);
+
