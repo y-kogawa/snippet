@@ -2,12 +2,62 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>sp-auto-tel-link-wrap｜JavaScript</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>sp-auto-tel-link-wrap</title>
+<link rel="stylesheet" href="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.css">
+<link rel="stylesheet" href="../../asset/jquery.ex-code-prettify/jquery.ex-code-prettify.css">
+<link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../../asset/demo.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../asset/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.js"></script>
+<script src="../../asset/jquery.ex-code-prettify/jquery.ex-code-prettify.js"></script>
+<script src="../../asset/js-script.js"></script>
 </head>
 <body>
 
-<h1>sp-auto-tel-link-wrap｜JavaScript</h1>
+<div class="container">
+	<div class="page-header">
+		<h1>sp-auto-tel-link-wrap <small><a href="../../">../index</a></small></h1>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2 class="panel-title">サンプル</h2>
+		</div>
+		<div class="panel-body">
+			<p>JavaScriptで閲覧ブラウザのユーザーエージェントを確認し、スマートフォンの場合のみdata-telが設定されたタグをaタグでオーバーラップします。</p>
+
+			<div class="ex-code-prettify demo-top">
+<pre class="code" data-ex-code-prettify-param="{codeType:'html'}">
+&lt;p&gt;スマートフォンで表示されたときのみ&lt;span data-tel=&quot;090-1234-5678&quot;&gt;指定した箇所&lt;/span&gt;に電話番号リンクが設定されます。&lt;/p&gt;
+</pre>
+<pre class="code" data-ex-code-prettify-param="{codeType:'script'}">
+<script type="text/javascript">
+var isSmartPhone = function(){
+	if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+		return true;
+	}else{
+		return false;
+	}
+}
+
+$(function(){
+	if(!isSmartPhone()) return false;
+
+	$('[data-tel]').each(function(){
+		var tel_num = $(this).attr('data-tel');
+		$(this).wrap('<a href="tel:'+tel_num+'" />');
+	});
+});
+</script>
+</pre>
+			</div>
+
+		</div>
+	</div>
+</div>
 
 <script type="text/javascript">
 var isSmartPhone = function(){
@@ -27,8 +77,6 @@ $(function(){
 	});
 });
 </script>
-
-<p>スマートフォンで表示されたときのみ<span data-tel="090-1234-5678">指定した箇所</span>に電話番号リンクが設定されます。</p>
 
 </body>
 </html>
