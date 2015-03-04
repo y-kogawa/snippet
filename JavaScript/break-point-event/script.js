@@ -1,3 +1,7 @@
+/*
+ * Break Point Event
+ * ver: 0.1.1
+ */
 (function($){
 	$.fn.breakPointEvent = function(config){
 		var defaults = {
@@ -41,11 +45,11 @@
 			var timer, timeout = 0, bp, _bp;
 			var mediaShift = function(){
 				for(var i=0;i<opt.un_matchMedia.length;i++){
-					if(window.matchMedia(opt.break_point[i]).matches){
+					if(parseInt($('html').css('min-width')) == opt.un_matchMedia[i]){
 						bp = i;
 						if(bp != _bp) {
-							opt.event_func[i].call(false, {matches: true});
 							if(_bp != undefined) opt.event_func[_bp].call(false, {matches: false});
+							opt.event_func[bp].call(false, {matches: true});
 						}
 						_bp = bp;
 

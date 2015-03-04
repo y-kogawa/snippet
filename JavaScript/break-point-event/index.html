@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../../asset/demo.css">
-<script src="matchMedia.js"></script>
-<script src="matchMedia.addListener.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../../asset/bootstrap/js/bootstrap.min.js"></script>
 <script src="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.js"></script>
@@ -28,7 +26,24 @@ $(function(){
 })
 </script>
 <style>
-@
+@media (min-width: 1025px) {
+	html {
+		min-width: 1025px;
+	}
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+	html {
+		min-width: 701px;
+	}
+}
+
+@media (max-width: 700px) {
+	html {
+		min-width: 320px;
+	}
+}
+
 .this {
 	max-height: 100px;
 	overflow: auto;
@@ -42,7 +57,10 @@ $(function(){
 		<h1>Break Point Event <small><a href="../../">../index</a></small></h1>
 	</div>
 
-	<p>IE8以下を対象としない場合は、<a href="https://github.com/paulirish/matchMedia.js/" target="_blank">matchMedia.js</a>を使用することも視野に入れます。</p>
+	<p>
+		IE8に対応することが多いので、<a href="https://github.com/paulirish/matchMedia.js/" target="_blank">matchMedia.js</a>を使用しないスクリプトになります。<br>
+		window.matchMediaに対応していないブラウザの場合にはhtmlに付与されているmin-widthの値で判定します。
+	</p>
 
 	<section class="panel panel-default">
 		<div class="panel-heading">
