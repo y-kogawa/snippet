@@ -14,12 +14,15 @@
 <script src="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.js"></script>
 <script src="../../asset/jquery.ex-code-prettify/jquery.ex-code-prettify.js"></script>
 <script src="../../asset/js-script.js"></script>
+
+<!-- snippet -->
+<script src="script.js"></script>
 </head>
 <body>
 
 <div class="container">
 	<div class="page-header">
-		<h1>isSmartPhone｜JavaScript <small><a href="../../">../index</a></small></h1>
+		<h1>isSmartPhone <small><a href="../../">../index</a></small></h1>
 	</div>
 
 	<div class="panel panel-default">
@@ -29,6 +32,7 @@
 		<div class="panel-body">
 
 <pre class="code" data-ex-code-prettify-param="{codeType:'script'}">
+<script>
 var isSmartPhone = function(){
 	if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
 		return true;
@@ -41,17 +45,8 @@ if(isSmartPhone()){
 }else{
 	console.log('スマートフォン以外');
 }
-</pre>
-
-<script type="text/javascript">
-var isSmartPhone = function(){
-	if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
-		return true;
-	}else{
-		return false;
-	}
-}
 </script>
+</pre>
 
 </body>
 </html>
