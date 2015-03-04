@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>break-point-event</title>
+<link rel="stylesheet" href="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.css">
+<link rel="stylesheet" href="../../asset/jquery.ex-code-prettify/jquery.ex-code-prettify.css">
+<link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../../asset/demo.css">
+<script src="matchMedia.js"></script>
+<script src="matchMedia.addListener.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../asset/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.js"></script>
+<script src="../../asset/jquery.ex-code-prettify/jquery.ex-code-prettify.js"></script>
+<script src="../../asset/js-script.js"></script>
+
+<!-- snippet -->
+<script src="script.js"></script>
+<script>
+$(function(){
+	setTimeout(function(){	// DEMOに表示するためにわざとタイムラグを発生させてます。本来であれば不要です。
+		$(window).breakPointEvent();
+
+	}, 1000);
+})
+</script>
+<style>
+@
+.this {
+	max-height: 100px;
+	overflow: auto;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="page-header">
+		<h1>Break Point Event <small><a href="../../">../index</a></small></h1>
+	</div>
+
+	<p>IE8以下を対象としない場合は、<a href="https://github.com/paulirish/matchMedia.js/" target="_blank">matchMedia.js</a>を使用することも視野に入れます。</p>
+
+	<section class="panel panel-default">
+		<div class="panel-heading">
+			<h2 class="panel-title">サンプル</h2>
+		</div>
+		<div class="panel-body">
+			<p>
+				リサイズしてブレイクポイントになるとログが上に追加されていきます。<br>
+				break2: true<br>
+				break1: false<br>
+				と表示された場合は、break1が無効になり、break2が有効になったということです。
+			</p>
+
+			<div class="ex-code-prettify demo-top">
+<pre class="code" data-ex-code-prettify-param="{codeType:'html'}">
+&lt;div class="this"&gt;&lt;/div&gt;
+</pre>
+<pre class="code" data-ex-code-prettify-param="{codeType:'script'}">
+<script type="text/javascript">
+</script>
+</pre>
+			</div>
+
+		</div>
+	</section>
+</div>
+
+</body>
+</html>
