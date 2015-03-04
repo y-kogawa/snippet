@@ -16,35 +16,9 @@
 <script src="../../asset/js-script.js"></script>
 
 <!-- snippet -->
-<script src="script.js"></script>
-<script>
-$(function(){
-	setTimeout(function(){	// DEMOに表示するためにわざとタイムラグを発生させてます。本来であれば不要です。
-		$(window).breakPointEvent();
-
-	}, 1000);
-})
-</script>
+<script src="jquery.break-point-event.js"></script>
 <style>
-@media (min-width: 1025px) {
-	html {
-		min-width: 1025px;
-	}
-}
-
-@media (min-width: 701px) and (max-width: 1024px) {
-	html {
-		min-width: 701px;
-	}
-}
-
-@media (max-width: 700px) {
-	html {
-		min-width: 320px;
-	}
-}
-
-.this {
+#log {
 	max-height: 100px;
 	overflow: auto;
 }
@@ -54,7 +28,7 @@ $(function(){
 
 <div class="container">
 	<div class="page-header">
-		<h1>Break Point Event <small><a href="../../">../index</a></small></h1>
+		<h1>jQuery Break Point Event <small><a href="../../">../index</a></small></h1>
 	</div>
 
 	<p>
@@ -62,30 +36,48 @@ $(function(){
 		window.matchMediaに対応していないブラウザの場合にはhtmlに付与されているmin-widthの値で判定します。
 	</p>
 
-	<section class="panel panel-default">
+	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h2 class="panel-title">サンプル</h2>
 		</div>
 		<div class="panel-body">
 			<p>
-				リサイズしてブレイクポイントになるとログが上に追加されていきます。<br>
-				break2: true<br>
-				break1: false<br>
-				と表示された場合は、break1が無効になり、break2が有効になったということです。
+				リサイズしてブレイクポイントになるとログが上に追加されていきます。
 			</p>
 
 			<div class="ex-code-prettify demo-top">
 <pre class="code" data-ex-code-prettify-param="{codeType:'html'}">
-&lt;div class="this"&gt;&lt;/div&gt;
-</pre>
-<pre class="code" data-ex-code-prettify-param="{codeType:'script'}">
-<script type="text/javascript">
-</script>
+&lt;script src=&quot;jquery.break-point-event.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+	setTimeout(function(){	// DEMOに表示するためにわざとタイムラグを発生させてます。本来であれば不要です。
+		$(window).breakPointEvent({
+			break_point: ['(min-width: 1025px)', '(min-width: 701px) and (max-width: 1024px)', '(max-width: 700px)'],
+			event_func: [
+				function(media_query){
+					$(&#039;#log&#039;).prepend(&#039;&lt;div&gt;break1: &#039; + media_query.matches + &#039;&lt;/div&gt;&#039;);
+
+				},
+				function(media_query){
+					$(&#039;#log&#039;).prepend(&#039;&lt;div&gt;break2: &#039; + media_query.matches + &#039;&lt;/div&gt;&#039;);
+
+				},
+				function(media_query){
+					$(&#039;#log&#039;).prepend(&#039;&lt;div&gt;break3: &#039; + media_query.matches + &#039;&lt;/div&gt;&#039;);
+
+				}
+			]
+		});
+
+	}, 1000);
+});
+&lt;/script&gt;
+&lt;div id="log"&gt;&lt;/div&gt;
 </pre>
 			</div>
 
 		</div>
-	</section>
+	</div>
 </div>
 
 </body>
