@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<title>isSmartPhone</title>
+<title>getDevice</title>
 <link rel="stylesheet" href="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.css">
 <link rel="stylesheet" href="../../asset/jquery.ex-code-prettify/jquery.ex-code-prettify.css">
 <link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
 
 <div class="container">
 	<div class="page-header">
-		<h1>isSmartPhone <small><a href="../../">../index</a></small></h1>
+		<h1>getDevice <small><a href="../../">../index</a></small></h1>
 	</div>
 
 	<div class="panel panel-default">
@@ -30,22 +30,26 @@
 			<h2 class="panel-title">サンプル</h2>
 		</div>
 		<div class="panel-body">
-
+			<div class="ex-code-prettify demo-top">
+<pre class="code" data-ex-code-prettify-param="{codeType:'html'}">
+&lt;div id="log"&gt;&lt;/div&gt;
+</pre>
 <pre class="code" data-ex-code-prettify-param="{codeType:'script'}">
 <script>
-var isSmartPhone = function(){
-	if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
-		return true;
+var getDevice = function(){
+	var ua = navigator.userAgent;
+	if(ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0){
+		return 'sp';
+	}else if(ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0){
+		return 'tab';
 	}else{
-		return false;
+		return 'other';
 	}
-}
-if(isSmartPhone()){
-	console.log('スマートフォン');
-}else{
-	console.log('スマートフォン以外');
-}
+};
+
+document.getElementById('log').innerHTML = getDevice();
 </script>
+			</div>
 </pre>
 
 </body>
