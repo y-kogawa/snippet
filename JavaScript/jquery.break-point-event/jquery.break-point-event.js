@@ -1,6 +1,7 @@
 /*
  * Break Point Event
  * ver: 0.2.0
+ * Author: Yoshito Kogawa
  */
 (function($){
 	$.fn.breakPointEvent = function(config){
