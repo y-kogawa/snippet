@@ -13,18 +13,16 @@
 
 		var src, src_replace, _self, image;
 		for(var i=0;i<this.length;i++){
-			_self = $(this[i]);
-
 			src = this[i].getAttribute('src');
 			if(src.indexOf(opt.suffix) > -1){
 				src_replace = src.replace(opt.suffix, opt.suffix_replace);
 				image = new Image();
 				image.src = src_replace;
-				_self.hover(function(){
-					this.setAttribute('src', src.replace(opt.suffix, opt.suffix_replace));
+				$(this[i]).hover(function(){
+					this.setAttribute('src', src_replace);
 
 				}, function(){
-					this.setAttribute('src', src.replace(opt.suffix_replace, opt.suffix));
+					this.setAttribute('src', src);
 
 				});
 			}
