@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>Easy Rollover</title>
+<link rel="stylesheet" href="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.css">
+<link rel="stylesheet" href="../../asset/jquery.ex-code-prettify/jquery.ex-code-prettify.css">
+<link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../../asset/demo.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../asset/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.js"></script>
+<script src="../../asset/jquery.ex-code-prettify/jquery.ex-code-prettify.js"></script>
+<script src="../../asset/js-script.js"></script>
+
+<!-- snippet -->
+<script src="jquery.easy-rollover.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<div class="page-header">
+		<h1>Easy Rollover <small><a href="../../">../index</a></small></h1>
+		<div><span class="label label-primary">jQuery</span> / <span class="label label-info">IE8</span> <span class="label label-info">IE9</span> <span class="label label-info">IE10</span> <span class="label label-info">IE11</span> <span class="label label-warning">Chrome</span> <span class="label label-danger">Firefox</span> <span class="label label-primary">Safari</span></div>
+	</div>
+
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h2 class="panel-title">ファイル</h2>
+		</div>
+		<div class="panel-body">
+			<a href="https://github.com/Y-Kogawa/snippet/tree/master/JavaScript/jquery.break-point-event" target="_blank">gitHub Repository</a>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2 class="panel-title">サンプル</h2>
+		</div>
+		<div class="panel-body">
+			<p>
+				ロールオーバー時の読み込みを軽減させるための、プリロード付きロールオーバーJavaScriptです。<br>
+				Develoop ToolのNetworkからロールオーバー後の画像となる「button01_over.png」がマウスオーバー前に読み込まれていることがわかります。
+			</p>
+			<p>
+				使い方は簡単で対象となる要素を参照し、プラグインを実行するだけです。<br>
+				オプションでサフィックスの変更が可能です。
+			</p>
+
+			<div class="ex-code-prettify demo-top">
+<pre class="code" data-ex-code-prettify-param="{codeType:'html'}">
+&lt;a href="#"&gt;&lt;img src="button01.png" width="180" height="57" alt="button"&gt;&lt;/a&gt;
+&lt;a href="#"&gt;&lt;img src="button01_out.png" width="180" height="57" alt="button"&gt;&lt;/a&gt;
+&lt;a href="#"&gt;&lt;img src="button01_off.png" width="180" height="57" alt="button" class="rollover"&gt;&lt;/a&gt;
+&lt;script src=&quot;jquery.easy-rollover.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+	// 通常のサンプル
+	$('img').easyRollover();
+
+	// サフィックスを変更したサンプル
+	$('.rollover').easyRollover({
+		suffix: '_off.',
+		suffix_replace: '_on.'
+	});
+});
+&lt;/script&gt;
+</pre>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
