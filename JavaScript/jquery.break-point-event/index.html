@@ -55,26 +55,23 @@
 &lt;script src=&quot;jquery.break-point-event.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
 $(function(){
-	setTimeout(function(){	// DEMOに表示するためにわざとタイムラグを発生させてます。本来であれば不要です。
-		$(window).breakPointEvent({
-			break_point: ['(min-width: 1025px)', '(min-width: 701px) and (max-width: 1024px)', '(max-width: 700px)'],
-			event_func: [
-				function(media_query){
-					$(&#039;#log&#039;).prepend(&#039;&lt;div&gt;break1: &#039; + media_query.matches + &#039;&lt;/div&gt;&#039;);
+	$(window).breakPointEvent({
+		break_point: ['(min-width: 1025px)', '(min-width: 701px) and (max-width: 1024px)', '(max-width: 700px)'],
+		event_func: [
+			function(media_query){
+				$(&#039;#log&#039;).prepend(&#039;&lt;div&gt;break1: &#039; + media_query.matches + &#039;&lt;/div&gt;&#039;);
 
-				},
-				function(media_query){
-					$(&#039;#log&#039;).prepend(&#039;&lt;div&gt;break2: &#039; + media_query.matches + &#039;&lt;/div&gt;&#039;);
+			},
+			function(media_query){
+				$(&#039;#log&#039;).prepend(&#039;&lt;div&gt;break2: &#039; + media_query.matches + &#039;&lt;/div&gt;&#039;);
 
-				},
-				function(media_query){
-					$(&#039;#log&#039;).prepend(&#039;&lt;div&gt;break3: &#039; + media_query.matches + &#039;&lt;/div&gt;&#039;);
+			},
+			function(media_query){
+				$(&#039;#log&#039;).prepend(&#039;&lt;div&gt;break3: &#039; + media_query.matches + &#039;&lt;/div&gt;&#039;);
 
-				}
-			]
-		});
-
-	}, 1000);
+			}
+		]
+	});
 });
 &lt;/script&gt;
 &lt;div id="log"&gt;&lt;/div&gt;
