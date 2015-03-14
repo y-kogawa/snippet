@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Scroll Event ver 0.1.1</title>
+<title>Scroll Event</title>
 <style>
 body {
 	margin: 0;
@@ -17,6 +17,7 @@ body {
 	top: 10px;
 	left: 10px;
 	z-index: 10000;
+	font-size: 12px;
 }
 
 #debugPanel h1 {
@@ -33,15 +34,16 @@ body {
 }
 
 #debugPanel .output:before {
-	content: ": "
+	content: ": ";
 }
 
 #scenes .scene {
-	height: 600px;
-	height: 80vh;
+	min-height: 600px;
+	min-height: 80vh;
 	background: #eee;
 	border: 1px solid #f00;
 	position: relative;
+	text-align: center;
 }
 
 #scenes > :nth-child(even) {
@@ -49,17 +51,15 @@ body {
 }
 
 #scenes .scene > .ttl {
-	margin: 0;
-	width: 100%;
-	position: absolute;
-	top: 50%;
-	left: 0;
-	text-align: center;
+	margin-top: 100px;
+	font-size: 30px;
+}
 
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
+#scene02 .fadeIn,
+#scene03 .fadeIn {
+	margin-top: 200px;
+	border: 2px solid #00f;
+	font-size: 20px;
 }
 
 </style>
@@ -71,7 +71,7 @@ body {
 </head>
 <body>
 <div id="debugPanel">
-	<h1>Scroll Event ver 0.1.1</h1>
+	<h1>Scroll Event</h1>
 	<ul>
 		<li>Win Chrome でホイールスクロール量調整</li>
 		<li>IE 8～11 / Chrome / Firefox / Safari</li>
@@ -91,62 +91,72 @@ body {
 			<td class="output"></td>
 		</tr>
 		<tr id="currentPos">
-			<th>カレント位置</th>
+			<th>シーンのカレント</th>
 			<td class="output"></td>
 		</tr>
 		<tr id="currentPosEx">
-			<th>カレント位置ex</th>
+			<th>シーンのカレントex</th>
 			<td class="output"></td>
 		</tr>
 		<tr id="event">
-			<th>実行イベント</th>
+			<th>シーンの実行イベント</th>
+			<td class="output"></td>
+		</tr>
+
+		<tr id="contentEvent">
+			<th>コンテントの実行イベント</th>
 			<td class="output"></td>
 		</tr>
 	</table>
 </div>
 
 <div id="scenes">
-	<section class="scene" data-event="event1">
+	<section id="scene01" class="scene" data-scene-event="event1">
 		<h2 class="ttl">シーン1</h2>
-
 	</section>
 
-	<section class="scene" data-event="event2">
+	<section id="scene02" class="scene" data-scene-event="event2">
 		<h2 class="ttl">シーン2</h2>
+		<div class="fadeIn" data-content-in-event="scene2fadein">
+			<span>フェードイン</span>
+		</div>
 
 	</section>
 
-	<section class="scene" data-event="event3">
+	<section id="scene03" class="scene" data-scene-event="event3">
 		<h2 class="ttl">シーン3</h2>
+		<div class="fadeIn" data-content-in-event="scene3fadein">
+			<span>フェードイン</span>
+		</div>
 
 	</section>
 
-	<section class="scene" data-event="event4">
+	<section id="scene04" class="scene" data-scene-event="event4">
 		<h2 class="ttl">シーン4</h2>
 
 	</section>
 
-	<section class="scene" data-event="event5">
+	<section id="scene05" class="scene" data-scene-event="event5">
 		<h2 class="ttl">シーン5</h2>
 
 	</section>
 
-	<section class="scene" data-event="event6">
+	<section id="scene06" class="scene" data-scene-event="event6">
 		<h2 class="ttl">シーン6</h2>
 
 	</section>
 
-	<section class="scene" data-event="event7">
+	<section id="scene07" class="scene" data-scene-event="event7">
 		<h2 class="ttl">シーン7</h2>
 
 	</section>
 
-	<section class="scene" data-event="event8">
+	<section id="scene08" class="scene" data-scene-event="event8">
 		<h2 class="ttl">シーン8</h2>
 
 	</section>
 
-	<section class="scene" data-event="event9">
+	<section id="scene09" class="scene" data-scene-event="event9">
 		<h2 class="ttl">シーン9</h2>
 
 	</section>

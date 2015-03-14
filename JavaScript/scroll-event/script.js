@@ -1,3 +1,7 @@
+/*
+ * Scroll Event ver 0.2.0
+ * Author: Yoshito Kogawa
+ */
 (function($){
 	// 使用する変数を登録
 	var mousewheelevent = 'onwheel' in document ? 'wheel' : 'onmousewheel' in document ? 'mousewheel' : 'DOMMouseScroll',
@@ -27,7 +31,15 @@
 			pos_bottom: [],
 			current: false,
 			_current: -1
-		}
+		},
+		content = {
+			elm: false,
+			event: [],
+			pos_top: [],
+			pos_bottom: [],
+			current: false,
+			_current: -1
+		};
 
 	// 閲覧ブラウザの取得
 	var _getBrowser = function(){
@@ -58,7 +70,7 @@
 			name = 'firefox';
 		}
 		return name;
-	}
+	};
 
 	// 閲覧ブラウザのOSを取得
 	var _getOS = function(){
@@ -77,7 +89,7 @@
 			name = 'android';
 		}
 		return name;
-	}
+	};
 
 	var _getScroll = function(vector){
 		if(vector == 'Y'){
@@ -86,7 +98,16 @@
 			return (window.pageXOffset !== undefined) ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft
 		}
 
-	}
+	};
+
+	var _getNowTime = function(){
+		var today = new Date();
+		var nowTime = [('0'+today.getHours()).slice(-2),
+						('0'+today.getMinutes()).slice(-2),
+						('0'+today.getSeconds()).slice(-2),
+						('0'+today.getMilliseconds()).slice(-2)].join(':');
+		return nowTime;
+	};
 
 	var scrollEvent = function(){
 		scrl.top = $(window).scrollTop();
@@ -102,25 +123,24 @@
 
 		}
 
-		// カレント位置を取得
+		// シーンのカレントを取得
 		sceneEvent._setCurrent();
-		var today = new Date();
-			nowTime = [('0'+today.getHours()).slice(-2),
-						('0'+today.getMinutes()).slice(-2),
-						('0'+today.getSeconds()).slice(-2),
-						('0'+today.getMilliseconds()).slice(-2)].join(':');
-		$('#currentPos').find('.output').text(scene.current + ' / Reload: ' + nowTime);
+		$('#currentPos').find('.output').text(scene.current + ' / Reload: ' + _getNowTime());
 
-		// カレント位置が変わった瞬間だけ実行
+		// シーンのカレントが変わった瞬間だけ実行
 		if(scene.current != scene._current){
-			$('#currentPosEx').find('.output').text(scene.current + ' / Reload: ' + nowTime);
+			$('#currentPosEx').find('.output').text(scene.current + ' / Reload: ' + _getNowTime());
 			sceneEvent.run();
 		}
 		scene._current = scene.current;
 
-		scrl._top = scene.current;
-	}
+		// コンテンツのイベント実行
+		contentEvent.run();
 
+		scrl._top = scrl.top;
+	};
+
+	// シーンの切り替わり
 	var sceneEvent = {
 		_init: function(){
 			scene.elm = $('#scenes').find('.scene');
@@ -130,7 +150,7 @@
 				var _self = $(scene.elm[i]);
 
 				// 各シーンのイベントを取得
-				scene.event.push(_self.data('event'));
+				scene.event.push(_self.data('scene-event'));
 
 				// 各シーンのトップ位置を取得
 				scene.pos_top.push(_self.offset().top);
@@ -158,15 +178,55 @@
 		},
 
 		run: function(){
-			$('#event').find('.output').text(scene.event[scene.current]);
+			$('#event').find('.output').text(scene.event[scene.current] + ' / Reload: ' + _getNowTime());
+		},
+	};
+
+	// コンテントイベント
+	var contentEvent = {
+		_init: function(){
+			content.elm = $('[data-content-in-event]');
+			content.max = content.elm.length;
+
+			for(var i=0;i<content.max;i++){
+				var _self = $(content.elm[i]);
+
+				// 各シーンのイベントを取得
+				content.event.push(_self.data('content-in-event'));
+
+				// 各シーンのトップ位置を取得
+				content.pos_top.push(_self.offset().top);
+
+				// 各シーンのボトム位置を取得
+				content.pos_bottom.push(_self.offset().top + _self.outerHeight());
+
+			}
+
+			console.log(content);
+		},
+
+		run: function(){
+			var _sefl;
+			for(var i=0;i<content.max;i++){
+				_self = $(content.elm[i]);
+				if(scrl.top >= content.pos_top[i] - win.h && scrl.top < content.pos_bottom[i] && !_self.data('event_exe')){
+					_self.data('event_exe', 1);
+					content.current = i;
+					$('#contentEvent').find('.output').text(content.event[content.current] + ' / Reload: ' + _getNowTime());
+
+				}else if(scrl.top <= content.pos_top[i] - win.h && _self.data('event_exe')){
+					_self.data('event_exe', 0);
+
+				}
+			}
 
 		},
-	}
+	};
 
-	$('html').addClass(_getBrowser());
-	$('html').addClass(_getOS());
-	;$(function(){
+	$('html').addClass(_getBrowser() + ' ' + _getOS());
+	$(function(){
 		sceneEvent._init();
+		contentEvent._init();
 
 		;(function(){
 			var target_browser = (scrl.overlap && (_getBrowser() == 'chrome' && _getOS() == 'win')),
@@ -209,7 +269,7 @@
 				}
 
 				if(_getBrowser() != 'ie8') scrollEvent();
-			}
+			};
 
 			try{
 				document.addEventListener(mousewheelevent, onWheel, false);
@@ -225,7 +285,7 @@
 		window.onscroll = function(){
 			scrollEvent();
 
-		} // end window.onscroll
+		}; // end window.onscroll
 
 	});
 
