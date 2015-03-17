@@ -28,7 +28,7 @@
 
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<h2 class="panel-title">ファイル</h2>
+			<h2 class="panel-title">File</h2>
 		</div>
 		<div class="panel-body">
 			<a href="https://github.com/Y-Kogawa/snippet/tree/master/JavaScript/jquery.easy-rollover" target="_blank">gitHub Repository</a>
@@ -37,7 +37,7 @@
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h2 class="panel-title">サンプル</h2>
+			<h2 class="panel-title">Sample</h2>
 		</div>
 		<div class="panel-body">
 			<p>
@@ -51,25 +51,89 @@
 
 			<div class="ex-code-prettify demo-top">
 <pre class="code" data-ex-code-prettify-param="{codeType:'html'}">
-&lt;a href="#"&gt;&lt;img src="button01.png" width="180" height="57" alt="button"&gt;&lt;/a&gt;
-&lt;a href="#"&gt;&lt;img src="button01_out.png" width="180" height="57" alt="button"&gt;&lt;/a&gt;
-&lt;a href="#"&gt;&lt;img src="button01_off.png" width="180" height="57" alt="button" class="rollover"&gt;&lt;/a&gt;
+&lt;a href="#"&gt;&lt;img src="button01_out.png" width="180" height="57" alt="button" class="rollover"&gt;&lt;/a&gt;
+&lt;a href="#"&gt;&lt;img src="button01_off.png" width="180" height="57" alt="button" class="rollover-suffix"&gt;&lt;/a&gt;
+&lt;a href="#"&gt;&lt;img src="button01_out.png" width="180" height="57" alt="button" class="rollover-fade"&gt;&lt;/a&gt;
 &lt;script src=&quot;jquery.easy-rollover.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
 $(function(){
 	// 通常のサンプル
-	$('img').easyRollover();
+	$('.rollover').easyRollover();
 
 	// サフィックスを変更したサンプル
-	$('.rollover').easyRollover({
+	$('.rollover-suffix').easyRollover({
 		suffix: '_off.',
 		suffix_replace: '_on.'
+	});
+
+	// フェードするロールオーバーのサンプル
+	$('.rollover-fade').easyRollover({
+		transition: 'fade',
+		duration: 1000,
+		easing: 'swing'
 	});
 });
 &lt;/script&gt;
 </pre>
 			</div>
 
+		</div>
+
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h2 class="panel-title">Option</h2>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Value</th>
+						<th>Initial value</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>suffix</th>
+						<td>Strong（文字列）</td>
+						<td>_out.</td>
+						<td>置換前の文字列を指定します。</td>
+					</tr>
+					<tr>
+						<th>suffix_replace</th>
+						<td>Strong（文字列）</td>
+						<td>_over.</td>
+						<td>置換後の文字列を指定します。</td>
+					</tr>
+					<tr>
+						<th>transition</th>
+						<td>moment | fade</td>
+						<td>moment</td>
+						<td>切り替わるときの演出を指定します。</td>
+					</tr>
+					<tr>
+						<th>duration</th>
+						<td>Number（数値）</td>
+						<td>250</td>
+						<td>切り替わりがアニメーションの場合に、その再生秒数をミリ秒で指定します。</td>
+					</tr>
+					<tr>
+						<th>easing</th>
+						<td>linear | swing （jQuery Easing）</td>
+						<td>linear</td>
+						<td>切り替わりがアニメーションの場合に、そのイージングを指定します。</td>
+					</tr>
+					<tr>
+						<th>parent_style_overlap</th>
+						<td>true | false</td>
+						<td>true</td>
+						<td>transition の設定が fade のとき、親要素のスタイルをJavaScriptで書き換えるかの on / off を指定します。</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
