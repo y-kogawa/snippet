@@ -1,6 +1,6 @@
 /*
  * jQuery Easy Rollover
- * ver: 0.2
+ * ver: 0.3.1
  * Author: Yoshito Kogawa
  */
 (function($){
@@ -9,10 +9,11 @@
 			suffix: '_out.',
 			suffix_replace: '_over.',
 			transition: 'moment',	// moment | fade
+			opacity: 0.7,
 			duration: 250,
 			easing: 'linear',
 			parent_style_overlap: true
-		};
+		},
 		opt = $.extend(defaults, config);
 
 		var src, src_replace, _self, image;
@@ -63,8 +64,23 @@
 						_parent.append(image);
 						break;
 				}
-			}
 
+			}else{
+				switch(opt.transition){
+					case 'fade':
+						var _self = $(this[i]);
+						_self.hover(function(){
+							_self.stop().fadeTo(opt.duration, opt.opacity, opt.easing);
+
+						}, function(){
+							_self.stop().fadeTo(opt.duration, 1, opt.easing);
+
+						});
+						break;
+				}
+			}
 		}
-	};
+
+		return(this);
+	}
 })(jQuery);
