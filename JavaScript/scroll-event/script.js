@@ -2,6 +2,7 @@
  * Scroll Event ver 0.2.0
  * Author: Yoshito Kogawa
  */
+if(!window.console) window.console = { log: function(msg){} };
 (function($){
 	// 使用する変数を登録
 	var mousewheelevent = 'onwheel' in document ? 'wheel' : 'onmousewheel' in document ? 'mousewheel' : 'DOMMouseScroll',
