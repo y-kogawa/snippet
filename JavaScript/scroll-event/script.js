@@ -1,5 +1,5 @@
 /*
- * Scroll Event ver 0.2.0
+ * Scroll Event ver 0.2.1
  * Author: Yoshito Kogawa
  */
 if(!window.console) window.console = { log: function(msg){} };
@@ -21,9 +21,6 @@ if(!window.console) window.console = { log: function(msg){} };
 			_top: false,
 			vector: false,
 			overlap: true
-		},
-		wheel = {
-			vector: false
 		},
 		scene = {
 			elm: false,
@@ -114,7 +111,6 @@ if(!window.console) window.console = { log: function(msg){} };
 		scrl.top = $(window).scrollTop();
 		$('#scrollTop').find('.output').text(scrl.top);
 		$('#scrollVector').find('.output').text(scrl.vector);
-		$('#wheelVector').find('.output').text(wheel.vector);
 
 		if(scrl.top > scrl._top){
 			scrl.vector = 'down';
@@ -203,7 +199,6 @@ if(!window.console) window.console = { log: function(msg){} };
 
 			}
 
-			console.log(content);
 		},
 
 		run: function(){
@@ -229,65 +224,11 @@ if(!window.console) window.console = { log: function(msg){} };
 		sceneEvent._init();
 		contentEvent._init();
 
-		;(function(){
-			var target_browser = (scrl.overlap && (_getBrowser() == 'chrome' && _getOS() == 'win')),
-				scrl_increment = 50, scrl_x, scrl_y, scrl_pos
-			;
-
-			var onWheel = function(e){
-				if(!e) e = window.event; //for legacy IE
-				var delta_y = e.deltaY ? -(e.deltaY) : e.wheelDelta ? e.wheelDelta : -(e.detail);
-
-				// 下にスクロール
-				if (delta_y < 0){
-					wheel.vector = 'down';
-					if(target_browser){
-						e.preventDefault();
-
-						// スクロール位置の算出
-						scrl_x = window.scrollX; // IEも対象にするなら_getScroll('X')を使用する
-						scrl_y = window.scrollY; // IEも対象にするなら_getScroll('Y')を使用する
-						scrl_y = scrl_y + scrl_increment;
-
-						window.scroll(scrl_x, scrl_y);
-
-					}
-
-				// 上にスクロール
-				} else if (delta_y > 0){
-					wheel.vector = 'up';
-					if(target_browser){
-						e.preventDefault();
-
-						// スクロール位置の算出
-						scrl_x = window.scrollX; // IEも対象にするなら_getScroll('X')を使用する
-						scrl_y = window.scrollY; // IEも対象にするなら_getScroll('Y')を使用する
-						scrl_y = scrl_y - scrl_increment;
-
-						window.scroll(scrl_x, scrl_y);
-
-					}
-				}
-
-				if(_getBrowser() != 'ie8') scrollEvent();
-			};
-
-			try{
-				document.addEventListener(mousewheelevent, onWheel, false);
-
-			}catch(e){
-				//for legacy IE
-				document.attachEvent('onmousewheel', onWheel);
-
-			}
-
-		})(); // wheel event
-
-		window.onscroll = function(){
-			scrollEvent();
-
-		}; // end window.onscroll
-
 	});
+
+	window.onscroll = function(){
+		scrollEvent();
+
+	}; // end window.onscroll
 
 })(jQuery);
