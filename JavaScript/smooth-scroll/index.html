@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ChromeやIEなど瞬間的にスクロールされるブラウザでもスムーズにスクロールするコード</title>
+<style>
+html, body {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	margin: 0;
+}
+
+#debugPanel {
+	padding: 10px;;
+	width: 400px;
+	border: 1px solid #000;
+	background: #FFF;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 10000;
+	font-size: 12px;
+}
+
+#debugPanel h1 {
+	margin: 0 0 10px;
+}
+
+#debugPanel th,
+#debugPanel td {
+	font-weight: normal;
+}
+
+#debugPanel th {
+	text-align: right;
+}
+
+#container {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.scene {
+	height: 700px;
+	height: 100vh;
+}
+
+.s1 { background-color: #E18D89; }
+.s2 { background-color: #E1D689; }
+.s3 { background-color: #A2E189; }
+.s4 { background-color: #89E1B9; }
+.s5 { background-color: #89BFE1; }
+.s6 { background-color: #9D89E1; }
+.s7 { background-color: #E189DB; }
+
+</style>
+<script src="jquery-1.11.2.min.js"></script>
+<!--[if lt IE 9]><script src="html5shiv.js"></script><![endif]-->
+
+<!-- snippet -->
+<script src="script.js"></script>
+</head>
+<body>
+
+<div id="debugPanel">
+	<p>
+		ChromeやIEなど瞬間的にスクロールされるブラウザでもスムーズにスクロールするコード<br>
+		※スクロールバーは表示されない
+	</p>
+
+	<table id="log">
+		<tr>
+			<th>スクロール位置</th>
+			<td id="scrollTop"></td>
+		</tr>
+	</table>
+</div>
+
+<div id="container">
+	<div class="scene s1"></div>
+	<div class="scene s2"></div>
+	<div class="scene s3"></div>
+	<div class="scene s4"></div>
+	<div class="scene s5"></div>
+	<div class="scene s6"></div>
+	<div class="scene s7"></div>
+</div>
+
+</body>
+</html>
