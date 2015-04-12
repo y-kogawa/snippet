@@ -1,43 +1,3 @@
-/*! jQuery requestAnimationFrame - v0.1.3pre - 2014-02-07
-* https://github.com/gnarf37/jquery-requestAnimationFrame
-* Copyright (c) 2014 Corey Frang; Licensed MIT */
-(function(e){function o(){t&&(i(o),e.fx.tick())}var t,n=0,r=["webkit","moz"],i=window.requestAnimationFrame,s=window.cancelAnimationFrame;for(;n<r.length&&!i;n++)i=window[r[n]+"RequestAnimationFrame"],s=s||window[r[n]+"CancelAnimationFrame"]||window[r[n]+"CancelRequestAnimationFrame"];i?(window.requestAnimationFrame=i,window.cancelAnimationFrame=s,e.fx.timer=function(n){n()&&e.timers.push(n)&&!t&&(t=!0,o())},e.fx.stop=function(){t=!1}):(window.requestAnimationFrame=function(e,t){var r=(new Date).getTime(),i=Math.max(0,16-(r-n)),s=window.setTimeout(function(){e(r+i)},i);return n=r+i,s},window.cancelAnimationFrame=function(e){clearTimeout(e)})})(jQuery);
-
-/*
- * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
- *
-*/
-jQuery.easing['jswing'] = jQuery.easing['swing'];
-jQuery.extend( jQuery.easing,
-{
-	def: 'easeOutQuad',
-	swing: function (x, t, b, c, d) {
-		//alert(jQuery.easing.default);
-		return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
-	},
-	easeOutQuad: function (x, t, b, c, d) {
-		return -c *(t/=d)*(t-2) + b;
-	},
-	easeOutCubic: function (x, t, b, c, d) {
-		return c*((t=t/d-1)*t*t + 1) + b;
-	},
-	easeOutQuart: function (x, t, b, c, d) {
-		return -c * ((t=t/d-1)*t*t*t - 1) + b;
-	},
-	easeOutQuint: function (x, t, b, c, d) {
-		return c*((t=t/d-1)*t*t*t*t + 1) + b;
-	},
-	easeOutSine: function (x, t, b, c, d) {
-		return c * Math.sin(t/d * (Math.PI/2)) + b;
-	},
-	easeOutExpo: function (x, t, b, c, d) {
-		return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
-	},
-	easeOutCirc: function (x, t, b, c, d) {
-		return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
-	}
-});
-
 ;$(function(){
 	var mousewheelevent = 'onwheel' in document ? 'wheel' : 'onmousewheel' in document ? 'mousewheel' : 'DOMMouseScroll',
 		browser = {
@@ -124,7 +84,7 @@ jQuery.extend( jQuery.easing,
 		if(!e) e = window.event; //for legacy IE
 		var delta_y = e.deltaY ? -(e.deltaY) : e.wheelDelta ? e.wheelDelta : -(e.detail);
 
-		console.log(_getBrowser() + ': ' + delta_y);
+		// console.log(_getBrowser() + ': ' + delta_y);
 		if (delta_y < 0){
 			scrl.direction = 'down';
 
@@ -133,6 +93,7 @@ jQuery.extend( jQuery.easing,
 
 		}
 
+		// Firefoxではスクロール量が少ないため割り増し
 		if(_getBrowser() == 'firefox'){
 			delta_y *= 20;
 		}
