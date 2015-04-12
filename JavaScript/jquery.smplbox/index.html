@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>jQuery Smplbox</title>
+<link rel="stylesheet" href="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.css">
+<link rel="stylesheet" href="../../asset/jquery.ex-code-prettify/jquery.ex-code-prettify.css">
+<link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../../asset/demo.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../asset/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.js"></script>
+<script src="../../asset/jquery.ex-code-prettify/jquery.ex-code-prettify.js"></script>
+<script src="../../asset/js-script.js"></script>
+
+<!-- snippet -->
+<style type="text/css">
+<!--
+.thumbnail {
+	width: 150px;
+	height: auto;
+	display: inline-block;
+	overflow: hidden;
+}
+-->
+</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="page-header">
+		<h1>jQuery Smplbox <small><a href="../../">../index</a></small></h1>
+		<div><span class="label label-primary">jQuery</span> / <span class="label label-info">IE8</span> <span class="label label-info">IE9</span> <span class="label label-info">IE10</span> <span class="label label-info">IE11</span> <span class="label label-warning">Chrome</span> <span class="label label-danger">Firefox</span> <span class="label label-primary">Safari</span></div>
+	</div>
+
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h2 class="panel-title">File</h2>
+		</div>
+		<div class="panel-body">
+			<a href="https://github.com/Y-Kogawa/snippet/tree/master/JavaScript/jquery.easy-rollover" target="_blank">gitHub Repository</a>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2 class="panel-title">Sample</h2>
+		</div>
+		<div class="panel-body">
+			<p>
+				ライトボックス風の表示をするプラグインです。<br>
+				これを元にカスタマイズすることを前提にしているため、機能やデザインはシンプルです。
+			</p>
+
+			<div class="ex-code-prettify demo-top">
+<pre class="code" data-ex-code-prettify-param="{codeType:'html'}">
+&lt;h3&gt;通常&lt;/h3&gt;
+&lt;a href="image01.jpg" class="thumbnail smplbox" title="菊"&gt;&lt;img src="image01.jpg" width="1024" height="768" alt=""&gt;&lt;/a&gt;
+
+&lt;h3&gt;スタイル名変更・ヘッダー非表示&lt;/h3&gt;
+&lt;a href="image02.jpg" class="thumbnail smplbox2" title="砂漠"&gt;&lt;img src="image02.jpg" width="1024" height="768" alt=""&gt;&lt;/a&gt;
+
+&lt;h3&gt;表示位置固定&lt;/h3&gt;
+&lt;a href="image03.jpg" class="thumbnail smplbox3" title="アジサイ"&gt;&lt;img src="image03.jpg" width="1024" height="768" alt=""&gt;&lt;/a&gt;
+
+&lt;h3&gt;グループ化&lt;/h3&gt;
+&lt;a href="image01.jpg" class="thumbnail smplbox4 group" title="菊"&gt;&lt;img src="image01.jpg" width="1024" height="768" alt=""&gt;&lt;/a&gt;
+&lt;a href="image02.jpg" class="thumbnail smplbox4 group" title="砂漠"&gt;&lt;img src="image02.jpg" width="1024" height="768" alt=""&gt;&lt;/a&gt;
+&lt;a href="image03.jpg" class="thumbnail smplbox4 group" title="アジサイ"&gt;&lt;img src="image03.jpg" width="1024" height="768" alt=""&gt;&lt;/a&gt;
+&lt;a href="image04.jpg" class="thumbnail smplbox4 group" title="クラゲ"&gt;&lt;img src="image04.jpg" width="1024" height="768" alt=""&gt;&lt;/a&gt;
+&lt;link rel="stylesheet" href="jquery.smplbox.css"&gt;
+&lt;script src=&quot;jquery.smplbox.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+	// 通常
+	$('.smplbox').smplbox();
+
+	// スタイル名変更・ヘッダー非表示
+	$('.smplbox2').smplbox({
+		film_id: 'smplboxOverlap2',
+		header: false
+	});
+
+	// 表示位置固定
+	$('.smplbox3').smplbox({
+		position: 'fixed',
+	});
+
+	// グループ化
+	$('.smplbox4').smplbox({
+		group: true,
+		group_class: 'group',
+		position: 'fixed'
+	});
+
+});
+&lt;/script&gt;
+</pre>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h2 class="panel-title">Option</h2>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Value</th>
+						<th>Initial value</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>position</th>
+						<td>Strong（文字列）</td>
+						<td>absolute</td>
+						<td>
+							CSSのpositionの値を指定することでドキュメントに固定するか、ウィンドウに固定するか切り替えられます。<br>
+							例えば、fixedにすることでスクロールしても同じ位置に表示されるようになります。
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

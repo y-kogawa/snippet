@@ -1,0 +1,80 @@
+@charset 'utf-8';
+/*
+ * jQuery Smplbox
+ * ver: 0.3.1
+ * Author: Yoshito Kogawa
+ */
+#smplboxOverlap {
+	width: 100%;
+	height: 100%;
+	background: url(smplbox_bg.png);
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+
+#smplbox {
+	box-sizing: border-box;
+	padding: 5px;
+	max-width: 80%;
+	min-width: 300px;
+	background-color: #FFF;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	z-index: 1001;
+	display: none;
+}
+
+#smplbox img {
+	max-width: 100%;
+	height: auto;
+}
+
+#smplboxHeader {
+	margin-bottom: 3px;
+	font-weight: bold;
+}
+
+#smplboxCtrlArea {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+#smplbox .smplboxCtrl {
+	margin-right: 10px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+#smplboxPrev:before {
+	content: "前へ";
+}
+
+#smplboxNext:before {
+	content: "次へ";
+}
+
+#smplboxCtrlArea .smplboxClose {
+	display: inline-block;
+	cursor: pointer;
+}
+
+#smplboxCtrlArea .smplboxClose:before {
+	content: "閉じる";
+}
+
+#smplboxOverlap2 {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.8);
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+
+
