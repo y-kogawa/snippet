@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>SphereGeometryを使ったサンプル</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--[if lt IE 9]><script src="html5shiv.js"></script><![endif]-->
+
+<!-- snippet -->
+<style>
+<!--
+body {
+	margin: 0;
+	background-color: #222;
+	color: #fff;
+	overflow: hidden;
+}
+#case {
+	padding: 20px;
+}
+.box {
+	margin: 0 0 20px 20px;
+	width: 400px;
+	height: 400px;
+	background-color: #000;
+	border: 1px solid #666;
+	float: left;
+	position: relative;
+}
+.box .label {
+	padding: 3px 0 0 5px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+-->
+</style>
+<script src="three.min.js"></script>
+<script src="CanvasRenderer.js"></script>
+<script src="Projector.js"></script>
+<script src="num1.js"></script>
+<script src="num2.js"></script>
+<script src="num3.js"></script>
+</head>
+<body>
+
+<div id="case">
+	<div class="box" id="num1">
+		<div class="label">一般的な球体（ワイヤー）</div>
+	</div>
+	<div class="box" id="num2">
+		<div class="label">地球のテクスチャを貼った</div>
+	</div>
+	<div class="box" id="num3">
+		<div class="label">光源を付けた</div>
+	</div>
+
+</div>
+
+</body>
+</html>
