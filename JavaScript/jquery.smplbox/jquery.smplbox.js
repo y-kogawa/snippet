@@ -6,28 +6,27 @@
 (function($){
 	"use strict";
 	$.fn.smplbox = function(config){
-		var defaults = {
-					film_id: 'smplboxOverlap',
-					body_id: 'smplbox',
-					body_inner_id: 'smplboxContent',
-					header: true,
-					header_id: 'smplboxHeader',
-					close_class: 'smplboxClose',
-					film_show_duration: 500,
-					film_show_easing: 'swing',
-					body_show_duration: 500,
-					body_show_easing: 'swing',
-					film_hide_duration: 200,
-					film_hide_easing: 'swing',
-					body_hide_duration: 200,
-					body_hide_easing: 'swing',
-					film: true,
-					position: 'absolute',
-					group: false,
-					group_class: 'group',
-					preload: true,
-				},
-				opt = $.extend(defaults, config);
+		var opt = $.extend({
+			film_id: 'smplboxOverlap',
+			body_id: 'smplbox',
+			body_inner_id: 'smplboxContent',
+			header: true,
+			header_id: 'smplboxHeader',
+			close_class: 'smplboxClose',
+			film_show_duration: 500,
+			film_show_easing: 'swing',
+			body_show_duration: 500,
+			body_show_easing: 'swing',
+			film_hide_duration: 200,
+			film_hide_easing: 'swing',
+			body_hide_duration: 200,
+			body_hide_easing: 'swing',
+			film: true,
+			position: 'absolute',
+			group: false,
+			group_class: 'group',
+			preload: true,
+		}, config);
 
 		var _self = $(this);
 
