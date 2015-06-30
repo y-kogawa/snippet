@@ -7,27 +7,27 @@
 	"use strict";
 	$.fn.smplbox = function(config){
 		var defaults = {
-				film_id: 'smplboxOverlap',
-				body_id: 'smplbox',
-				body_inner_id: 'smplboxContent',
-				header: true,
-				header_id: 'smplboxHeader',
-				close_class: 'smplboxClose',
-				film_show_duration: 500,
-				film_show_easing: 'swing',
-				body_show_duration: 500,
-				body_show_easing: 'swing',
-				film_hide_duration: 200,
-				film_hide_easing: 'swing',
-				body_hide_duration: 200,
-				body_hide_easing: 'swing',
-				film: true,
-				position: 'absolute',
-				group: false,
-				group_class: 'group',
-				preload: true,
-			},
-			opt = $.extend(defaults, config);
+					film_id: 'smplboxOverlap',
+					body_id: 'smplbox',
+					body_inner_id: 'smplboxContent',
+					header: true,
+					header_id: 'smplboxHeader',
+					close_class: 'smplboxClose',
+					film_show_duration: 500,
+					film_show_easing: 'swing',
+					body_show_duration: 500,
+					body_show_easing: 'swing',
+					film_hide_duration: 200,
+					film_hide_easing: 'swing',
+					body_hide_duration: 200,
+					body_hide_easing: 'swing',
+					film: true,
+					position: 'absolute',
+					group: false,
+					group_class: 'group',
+					preload: true,
+				},
+				opt = $.extend(defaults, config);
 
 		var _self = $(this);
 
@@ -42,7 +42,7 @@
 		if(!document.getElementById(opt.film_id) && opt.film) $('body').append(film_html);
 		if(!document.getElementById(opt.body_id)) $('body').append(body_html);
 
-		var body, film, path, image, width, height;
+		var image, width, height;
 		var ctrl = {
 			film: $('#'+opt.film_id),
 			body: $('#'+opt.body_id),
@@ -56,14 +56,15 @@
 					// コンテンツの挿入
 					ctrl.body_inner.html($(image));
 
+					// 表示位置調整
+					ctrl.posSet();
+
 					// フィルムの表示
 					ctrl.film.fadeIn(opt.film_show_duration, opt.film_show_easing);
 
 					// 本文の表示
 					ctrl.body.fadeIn(opt.body_show_duration, opt.body_show_easing);
 
-					// 表示位置調整
-					ctrl.posSet();
 				};
 
 				// ヘッダーの表示・非表示
