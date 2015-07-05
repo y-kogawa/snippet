@@ -1,5 +1,9 @@
 $(function(){
-	$('.code').exCodePrettify({
+	$('.codeDemo').exCodePrettify({
 		showDemo: true
+	});
+
+	$('.code').exCodePrettify({
+		showDemo: false
 	});
 });
