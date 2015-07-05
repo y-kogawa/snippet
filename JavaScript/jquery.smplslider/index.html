@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>jQuery Smplslider</title>
+<link rel="stylesheet" href="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.css">
+<link rel="stylesheet" href="../../asset/jquery.ex-code-prettify/jquery.ex-code-prettify.css">
+<link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../asset/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../../asset/demo.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../asset/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../asset/jquery.ex-code-prettify/google-code-prettify/prettify.js"></script>
+<script src="../../asset/jquery.ex-code-prettify/jquery.ex-code-prettify.js"></script>
+<script src="../../asset/js-script.js"></script>
+<script>
+$(function(){
+	$('.code').exCodePrettify();
+});
+</script>
+</head>
+<body>
+
+<div class="container">
+	<div class="page-header">
+		<h1>jQuery Smplbox <small><a href="../../">../index</a></small></h1>
+		<div><span class="label label-primary">jQuery</span> / <span class="label label-info">IE8</span> <span class="label label-info">IE9</span> <span class="label label-info">IE10</span> <span class="label label-info">IE11</span> <span class="label label-warning">Chrome</span> <span class="label label-danger">Firefox</span> <span class="label label-primary">Safari</span></div>
+	</div>
+
+	<p>
+		スライダーを実装するプラグインです。<br>
+		これを元にカスタマイズすることを前提にしているため、機能やデザインはシンプルです。
+	</p>
+
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h2 class="panel-title">File</h2>
+		</div>
+		<div class="panel-body">
+			<a href="https://github.com/Y-Kogawa/snippet/tree/master/JavaScript/jquery.smplslider" target="_blank">gitHub Repository</a>
+		</div>
+	</div>
+
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h2 class="panel-title">Read files</h2>
+		</div>
+		<div class="panel-body">
+<pre class="code" data-ex-code-prettify-param="{codeType:'html'}">
+&lt;link rel="stylesheet" href="jquery.smplslider.css"&gt;
+&lt;script src=&quot;jquery-1.11.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;jquery.smplslider.js&quot;&gt;&lt;/script&gt;
+</pre>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2 class="panel-title">Example1 - スライドショー</h2>
+		</div>
+		<div class="panel-body">
+			<p>
+				オプションの指定をしないで使用したときの動き。<br>
+				スライダーというよりはスライドショーな感じ。
+			</p>
+
+<div class="demo">
+	<link rel="stylesheet" href="jquery.smplslider.css">
+	<script src="jquery.smplslider.js"></script>
+	<script>
+	$(function(){
+		$('#example1').smplslider();
+	});
+	</script>
+	<div class="smplslider" id="example1">
+		<div class="smplslider-slide-container">
+			<div class="smplslider-slides">
+				<div class="smplslider-slide">
+					<img src="img/image01.jpg" height="750" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image02.jpg" height="619" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image03.jpg" height="667" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image04.jpg" height="662" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image05.jpg" height="667" width="1000" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!-- /.demo -->
+
+<pre class="code" data-ex-code-prettify-param="{codeType:'html'}">
+&lt;script&gt;
+$(function(){
+	$('#example1').smplslider();
+});
+&lt;/script&gt;
+&lt;div class=&quot;samplslider&quot;&gt;
+	&lt;div class=&quot;smplslider-slide-container&quot;&gt;
+		&lt;div class=&quot;smplslider-slides&quot;&gt;
+			&lt;div class=&quot;smplslider-slide&quot;&gt;
+				&lt;img src=&quot;img/image01.jpg&quot; height=&quot;750&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;smplslider-slide&quot;&gt;
+				&lt;img src=&quot;img/image02.jpg&quot; height=&quot;619&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;smplslider-slide&quot;&gt;
+				&lt;img src=&quot;img/image03.jpg&quot; height=&quot;667&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;smplslider-slide&quot;&gt;
+				&lt;img src=&quot;img/image04.jpg&quot; height=&quot;662&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;smplslider-slide&quot;&gt;
+				&lt;img src=&quot;img/image05.jpg&quot; height=&quot;667&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+			<section>
+				<h3>ex1) ループなし</h3>
+				<p>標準ではループする処理ですが、オプションで無効にできます</p>
+<div class="demo">
+	<link rel="stylesheet" href="jquery.smplslider.css">
+	<script src="jquery.smplslider.js"></script>
+	<script>
+	$(function(){
+		$('#example1_ex1').smplslider({
+			loop: false
+		});
+	});
+	</script>
+	<div class="smplslider" id="example1_ex1">
+		<div class="smplslider-slide-container">
+			<div class="smplslider-slides">
+				<div class="smplslider-slide">
+					<img src="img/image01.jpg" height="750" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image02.jpg" height="619" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image03.jpg" height="667" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image04.jpg" height="662" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image05.jpg" height="667" width="1000" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!-- /.demo -->
+
+<pre class="code" data-ex-code-prettify-param="{codeType:'html'}">
+&lt;script&gt;
+$(function(){
+	$('#example1_ex1').smplslider({
+		loop: false
+	});
+});
+&lt;/script&gt;
+&lt;!-- HTML省略 --&gt;
+</pre>
+			</section>
+
+
+			<section>
+				<h3>ex2) マウスオーバーでスライドショー停止</h3>
+				<p>
+					スライダーとカーソルが重なっている状態のときにスライドショーを停止させます。<br>
+					カーソルの重なりが解除されると再びスライドショーが再開されます。
+				</p>
+<div class="demo">
+	<link rel="stylesheet" href="jquery.smplslider.css">
+	<script src="jquery.smplslider.js"></script>
+	<script>
+	$(function(){
+		$('#example1_ex2').smplslider({
+			hoverStop: true
+		});
+	});
+	</script>
+	<div class="smplslider" id="example1_ex2">
+		<div class="smplslider-slide-container">
+			<div class="smplslider-slides">
+				<div class="smplslider-slide">
+					<img src="img/image01.jpg" height="750" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image02.jpg" height="619" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image03.jpg" height="667" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image04.jpg" height="662" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image05.jpg" height="667" width="1000" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!-- /.demo -->
+
+<pre class="code" data-ex-code-prettify-param="{codeType:'html'}">
+&lt;script&gt;
+$(function(){
+	$('#example1_ex2').smplslider({
+		hoverStop: true
+	});
+});
+&lt;/script&gt;
+&lt;!-- HTML省略 --&gt;
+</pre>
+			</section>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2 class="panel-title">Example2 - スライドショー（ループなし）</h2>
+		</div>
+		<div class="panel-body">
+			<p>
+				オプションの指定をしないで使用したときの動き。<br>
+				スライダーというよりはスライドショーな感じ。
+			</p>
+
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2 class="panel-title">Example3</h2>
+		</div>
+		<div class="panel-body">
+			<p>
+				オプションの指定をしないで使用したときの動きです。
+			</p>
+
+<div class="demo">
+	<link rel="stylesheet" href="jquery.smplslider.css">
+	<script src="jquery.smplslider.js"></script>
+	<script>
+	$(function(){
+		$('#example3').smplslider();
+	});
+	</script>
+	<div class="smplslider" id="example3">
+		<div class="smplslider-slide-container">
+			<div class="smplslider-slides">
+				<div class="smplslider-slide">
+					<img src="img/image01.jpg" height="750" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image02.jpg" height="619" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image03.jpg" height="667" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image04.jpg" height="662" width="1000" alt="">
+				</div>
+				<div class="smplslider-slide">
+					<img src="img/image05.jpg" height="667" width="1000" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="smplslider-thumbnail-container">
+			<div class="smplslider-thumbnail-list">
+				<div class="smplslider-thumbnail-box">
+					<img src="img/image01.jpg" height="750" width="1000" alt="">
+					<div class="smplslider-thumbnail-mask"></div>
+				</div>
+				<div class="smplslider-thumbnail-box">
+					<img src="img/image02.jpg" height="619" width="1000" alt="">
+					<div class="smplslider-thumbnail-mask"></div>
+				</div>
+				<div class="smplslider-thumbnail-box">
+					<img src="img/image03.jpg" height="667" width="1000" alt="">
+					<div class="smplslider-thumbnail-mask"></div>
+				</div>
+				<div class="smplslider-thumbnail-box">
+					<img src="img/image04.jpg" height="662" width="1000" alt="">
+					<div class="smplslider-thumbnail-mask"></div>
+				</div>
+				<div class="smplslider-thumbnail-box">
+					<img src="img/image05.jpg" height="667" width="1000" alt="">
+					<div class="smplslider-thumbnail-mask"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!-- /.demo -->
+
+<pre class="code" data-ex-code-prettify-param="{codeType:'html'}">
+&lt;script&gt;
+$(function(){
+	$('#example3').smplslider();
+});
+&lt;/script&gt;
+&lt;div class=&quot;samplslider&quot;&gt;
+	&lt;div class=&quot;smplslider-slide-container&quot;&gt;
+		&lt;div class=&quot;smplslider-slides&quot;&gt;
+			&lt;div class=&quot;smplslider-slide&quot;&gt;
+				&lt;img src=&quot;img/image01.jpg&quot; height=&quot;750&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;smplslider-slide&quot;&gt;
+				&lt;img src=&quot;img/image02.jpg&quot; height=&quot;619&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;smplslider-slide&quot;&gt;
+				&lt;img src=&quot;img/image03.jpg&quot; height=&quot;667&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;smplslider-slide&quot;&gt;
+				&lt;img src=&quot;img/image04.jpg&quot; height=&quot;662&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;smplslider-slide&quot;&gt;
+				&lt;img src=&quot;img/image05.jpg&quot; height=&quot;667&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;smplslider-thumbnail-container&quot;&gt;
+		&lt;div class=&quot;smplslider-thumbnail-list&quot;&gt;
+			&lt;div class=&quot;smplslider-thumbnail-box&quot;&gt;
+				&lt;img src=&quot;img/image01.jpg&quot; height=&quot;750&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+				&lt;div class=&quot;smplslider-thumbnail-mask&quot;&gt;&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;smplslider-thumbnail-box&quot;&gt;
+				&lt;img src=&quot;img/image02.jpg&quot; height=&quot;619&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+				&lt;div class=&quot;smplslider-thumbnail-mask&quot;&gt;&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;smplslider-thumbnail-box&quot;&gt;
+				&lt;img src=&quot;img/image03.jpg&quot; height=&quot;667&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+				&lt;div class=&quot;smplslider-thumbnail-mask&quot;&gt;&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;smplslider-thumbnail-box&quot;&gt;
+				&lt;img src=&quot;img/image04.jpg&quot; height=&quot;662&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+				&lt;div class=&quot;smplslider-thumbnail-mask&quot;&gt;&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;smplslider-thumbnail-box&quot;&gt;
+				&lt;img src=&quot;img/image05.jpg&quot; height=&quot;667&quot; width=&quot;1000&quot; alt=&quot;&quot;&gt;
+				&lt;div class=&quot;smplslider-thumbnail-mask&quot;&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+		</div>
+	</div>
+
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h2 class="panel-title">Option</h2>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Value</th>
+						<th>Initial value</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>xxx</th>
+						<td>Strong（文字列）</td>
+						<td>xxx</td>
+						<td>
+							xxx
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
