@@ -5,8 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script>
-var server_url = 'ws://ec2-54-238-64-78.ap-northeast-1.compute.amazonaws.com:8484/time';
-// var server_url = 'ws://'+location.host+':8484/time';
+var server_url = 'ws://'+location.host+':8484/time';
 if (typeof WebSocket === 'undefined') {
 	var ws = new MozWebSocket(server_url+'time?a=b');
 } else {
