@@ -1,3 +1,0 @@
-<Files ~ "^(server\.php|server\.bat|server\.sh)$">
-  deny from all
-</Files>
